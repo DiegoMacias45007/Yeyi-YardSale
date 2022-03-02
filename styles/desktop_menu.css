@@ -1,0 +1,61 @@
+:root{
+    --very-light-pink: #C7C7C7;
+    --white: #fff;
+    --text-input-field: #f7f7f7;
+    --black: #000;
+    --hospital-green: #ACD9B2;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.desktop-menu{
+    width: 150px;
+    height: auto;
+    border: 1px solid var(--text-input-field);
+    border-radius: 5px;
+    filter: drop-shadow(0 0 4px 0 rgba(0, 0, 0, 0.11));
+    background-color: var(--white);
+    padding: 0 25px 26px 25px;
+}
+
+.desktop-menu ul{
+    list-style: none;
+}
+
+.desktop-menu li{
+    text-align: end;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 700;
+    padding-top: 30px;
+}
+
+.desktop-menu a{
+    text-decoration: none;
+    color: black;
+}
+
+.desktop-menu li:nth-child(2){
+    margin-bottom: 20px;
+}
+
+.desktop-menu li:last-child{
+    border-top: 1px solid rgba(151, 151, 151, 0.1)
+}
+
+.desktop-menu li:last-child a{
+    color: var(--hospital-green);
+}

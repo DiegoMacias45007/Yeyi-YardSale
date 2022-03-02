@@ -1,0 +1,243 @@
+:root{
+    --very-light-pink: #C7C7C7;
+    --white: #fff;
+    --text-input-field: #f7f7f7;
+    --black: #000;
+    --hospital-green: #ACD9B2;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.nav-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    width: 100%;
+    height: 10vh; 
+}
+
+.nav-subcontainer1{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 5;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.046);
+}
+
+.nav__img{
+    height: fit-content;
+    margin: 0 18px;
+}
+
+.nav--logo{
+    display: none;
+}
+
+.nav--title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 2rem;
+}
+
+.nav-subcontainer3{
+    width: 100%;
+    height: 100%;
+    display: none;
+    /* @media tablet display= flex; */
+    grid-area: 1 / 2 / 2 / 5;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+.nav__item{
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 7px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color:var(--very-light-pink);
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav--selected{
+    color: var(--hospital-green);
+}
+
+.nav--border{
+    border: 1px solid var(--hospital-green);
+    border-radius: 10px;
+    margin-left: 18px;
+}
+
+.nav__account{
+    display: none;
+    width: 25%;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+    text-align: right;
+    color: black;
+    margin-right: 35px;
+}
+
+.account--arrow{
+    position: absolute;
+    top: calc(5% - 1px);
+    cursor: pointer;
+    width: 6px;
+    height: 3px;
+    background: url('../assets/Icons/arrow_down.svg') center/cover no-repeat;
+    opacity: 25%;
+    margin-left: 20px;
+}
+
+.nav--cart{
+    position: relative;
+    cursor: pointer;
+}
+
+.product-container{
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 320px;
+    max-width: 320px;
+    height: auto;
+}
+
+.product--img{
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.exit{
+    position: absolute;
+    margin: 18px 0 0 14px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+}
+
+.exit span{
+    background: url('../assets/Icons/icon_close.png') center/cover no-repeat;
+    width: 12px;
+    height: 12px;
+    position: inherit;
+    margin: 14px;
+}
+
+.slider-container{
+    display: flex;
+    width: 100%;
+    height: 14px;
+    justify-content: center;
+    margin-block-end: 15px;
+}
+
+.slider-container > .product--slider{
+    width: 7px;
+    height: 7px;
+    background-color: var(--very-light-pink);
+    border-radius: 50%;
+    margin: 0 2.5px;
+    cursor: pointer;
+}
+
+.slider-container > .product--slider:hover{
+    background-color: var(--hospital-green);
+}
+
+.slider-container > .slider--selected{
+    background-color: var(--hospital-green);
+}
+
+.product-description-container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 0 34px;
+    margin-bottom: 20px;
+}
+
+.product--price{
+    margin-bottom: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: #404040;
+}
+
+.product--name{
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.2rem;
+    color: #797979;
+}
+
+.product--description{
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: #797979;
+}
+
+.button{
+    margin: 0 34px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    width: 80%;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--hospital-green);
+    font-size: 1.8rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 2.2rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.button img{
+    margin-right: 10px;
+}
+
+@media (min-width: 1024px){
+    .nav-container{
+        display: none;
+    }
+}
