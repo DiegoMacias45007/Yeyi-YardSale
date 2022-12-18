@@ -1,3 +1,5 @@
+/* General */
+
 :root{
     --very-light-pink: #C7C7C7;
     --white: #fff;
@@ -21,10 +23,13 @@ html{
     font-size: 62.5%;
 }
 
+/* Inactive */
+
 .inactive{
     display: none;
 }
 
+/* Navigation */
 .nav-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -155,6 +160,8 @@ html{
     margin-left: 5px;
 }
 
+/* Desktop Menu */
+
 .desktop-menu{
     position: fixed;
     z-index: 1;
@@ -199,9 +206,11 @@ html{
     color: var(--hospital-green);
 }
 
+/* Mobile Menu */
+
 .mobile-menu{
     position: fixed;
-    top: 0;
+    top: 60px;
     width: 100%;
     height: 100vh;
     padding: 40px;
@@ -272,6 +281,8 @@ html{
     line-height: 1.7rem;
     color: var(--hospital-green);
 }
+
+/* Main */
 
 .shop-container{
     width: 100%;
