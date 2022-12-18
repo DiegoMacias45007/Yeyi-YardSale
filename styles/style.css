@@ -199,6 +199,80 @@ html{
     color: var(--hospital-green);
 }
 
+.mobile-menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 40px;
+    z-index: 1;
+    background-color: var(--white);
+}
+
+.categories{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 42px;
+    border-bottom: 1px solid var(--text-input-field);
+}
+
+.list{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list--item a{
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 40px;
+}
+
+.my-stuff{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0 30px;
+}
+.my-stuff__list{
+    display: grid;
+}
+
+.profile{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__list--email{
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+}
+
+.profile__list--sign-out a{
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.7rem;
+    color: var(--hospital-green);
+}
+
 .shop-container{
     width: 100%;
     height: auto;
