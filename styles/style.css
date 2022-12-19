@@ -276,12 +276,12 @@ html{
     color: var(--hospital-green);
 }
 
-/* Shopping Cart */
+/* Aside (Product Detail and Shopping Cart) */
 
 .order-container {
     position: absolute;
     top: 60px;
-    height: 100vh;
+    height: auto;
     width: 100%;
     min-width: 320px;
     max-width: 420px;
@@ -292,13 +292,15 @@ html{
     gap: 15px;
     background: var(--white);
     z-index: 1;
-    padding: 18px;
+    padding: 0 18px;
     border-radius: 10px;
+    overflow-y: scroll;
   }
   
   .order--title,
   .back {
     display: none;
+    cursor: pointer;
   }
   
   .order__overview {
@@ -510,7 +512,7 @@ html{
     }
     .order-container{
         right: 0;
-        box-shadow: -1px 1px 10px 0px rgba(0,0,0,0.79);
+        box-shadow: -1px 8px 20px 0px rgb(0 0 0 / 20%);
     }
     .nav-container{
         height: 20vh;
@@ -547,6 +549,42 @@ html{
         align-items: center;
         justify-content: flex-start;
     }
+    .order--title {
+        display: inline-block;
+        align-self: center;
+      }
+    
+      .overview--articles {
+        font-size: 1.4rem;
+      }
+    
+      .overview--total {
+        font-size: 1.6rem;
+      }
+    
+      .article--name {
+        font-size: 1.4rem;
+      }
+    
+      .article--price {
+        font-size: 1.6rem;
+      }
+}
+
+@media (min-width:640px){
+    .back {
+        width: 24px;
+        height: 16px;
+        background: url("../assets/Icons/Back.svg") center/cover no-repeat;
+        position: absolute;
+        margin-block-start: 32px;
+        margin-inline-start: 24px;
+        display: inline-block;
+      }
+    
+      .order--title {
+        margin-left: 48px;
+      }
 }
 
 @media (min-width: 768px){
