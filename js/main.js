@@ -38,7 +38,7 @@ const openProductDetail = () => {
     productDetail.classList.remove('inactive');
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    myOrder.classList.add('inactive')
+    myOrder.classList.add();
 }
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
