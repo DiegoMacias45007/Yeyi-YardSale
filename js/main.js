@@ -20,6 +20,7 @@ const toggleMobileMenu = () => {
 const toggleMyOrder = () => {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    
 
     myOrder.classList.toggle('inactive');
 }
