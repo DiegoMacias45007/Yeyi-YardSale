@@ -6,29 +6,47 @@ const shoppingCart = document.querySelector('.nav--cart');
 const backCart = document.querySelector('.back');
 const myOrder = document.querySelector('.order-container');
 const shopContainer = document.querySelector('.shop-container');
+const productDetail = document.querySelector('.product-detail');
+const exitDetail = document.querySelector('.exit');
 
 const toggleDesktopMenu = () => {
     desktopMenu.classList.toggle('inactive');
     myOrder.classList.add('inactive');
+    productDetail.classList.add('inactive');
 }
 
 const toggleMobileMenu = () => {
     mobileMenu.classList.toggle('inactive');
     myOrder.classList.add('inactive');
+    productDetail.classList.add('inactive')
 }
 
 const toggleMyOrder = () => {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    
+    productDetail.classList.add('inactive')
+
 
     myOrder.classList.toggle('inactive');
+}
+
+const closeProductDetail = () => {
+    productDetail.classList.add('inactive');
+}
+
+const openProductDetail = () => {
+    productDetail.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    myOrder.classList.add('inactive')
 }
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleMyOrder);
 backCart.addEventListener('click', toggleMyOrder);
+exitDetail.addEventListener('click', closeProductDetail);
+
 
 const productList = [];
 
@@ -62,6 +80,7 @@ const renderProducts = (arr) => {
         const productImage = document.createElement('img')
         productImage.classList.add('item--img');
         productImage.setAttribute('src', product.image);
+        productImage.addEventListener('click', openProductDetail);
     
         const itemPrice = document.createElement('h3');
         
@@ -83,6 +102,7 @@ const renderProducts = (arr) => {
 }
 
 renderProducts(productList);
+
 // for(i in array) muestra el indice
 
 //Tenerlo en una function ayuda a mantener un orden y que este pueda ser llamado cuando sea necesario

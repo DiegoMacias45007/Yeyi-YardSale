@@ -384,6 +384,7 @@ html{
   }
 /* Product Detail */
   .product-detail{
+    top: 61px;
     right: 0;
     position: absolute;
     display: flex;
@@ -393,6 +394,8 @@ html{
     min-width: 320px;
     max-width: 320px;
     height: auto;
+    z-index: 1;
+    background-color: var(--white);
 }
 
 .product--img{
@@ -409,6 +412,7 @@ html{
     height: 40px;
     background-color: var(--white);
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .exit span{
@@ -521,6 +525,7 @@ html{
 }
 
 .item--img{
+    cursor: pointer;
     width: 95%;
     border-radius: 10%;
     filter: drop-shadow(0px 0px 15px rgba(199, 199, 199, 0.5));
