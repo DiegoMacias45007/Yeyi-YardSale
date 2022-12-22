@@ -1,3 +1,5 @@
+//Constants
+
 const emailMenu = document.querySelector('.nav--email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.nav--menu');
@@ -11,6 +13,10 @@ const productDetail = document.querySelector('.product-detail');
 const exitDetail = document.querySelector('.exit');
 const overviewTotal = document.querySelector('.overview--total');
 const emptyCart = document.querySelector('.empty-cart');
+
+
+//Toggle Functions
+
 
 const toggleDesktopMenu = () => {
     desktopMenu.classList.toggle('inactive');
@@ -44,15 +50,25 @@ const openProductDetail = () => {
     myCart.classList.add();
 }
 
+
+// Main Event Listeners
+
+
 emailMenu.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleMyOrder);
 backCart.addEventListener('click', toggleMyOrder);
 exitDetail.addEventListener('click', closeProductDetail);
 
+//Arrays
+
 
 const productList = [];
 const cartProducts = [];
+
+
+//Shop Items
+
 
 productList.push({
     name: 'Round Shelf',
@@ -117,6 +133,9 @@ productList.push ({
     price: 876,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
 }); 
+
+//!Product Rendering
+
 // Existen dos formas en las que podemos recorrer un array para introducir cada producto al HTML
 
 // for(i of array)
@@ -164,6 +183,7 @@ renderProducts(productList);
 
 //Tenerlo en una function ayuda a mantener un orden y que este pueda ser llamado cuando sea necesario
 
+//!Cart Functions
 
 const addToCart = (index, cart) => {
     let x = productList[index];
