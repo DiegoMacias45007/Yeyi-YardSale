@@ -218,6 +218,7 @@ const removeFromCart = (element1, element2) =>{
     sumTotal();
     if(cartProducts.length === 0){
         emptyCart.classList.remove('inactive');
+        shoppingCart.setAttribute('src', '../assets/Icons/icon_shopping_cart.svg')
     }
 }
 
