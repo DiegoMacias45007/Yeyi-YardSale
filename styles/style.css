@@ -287,7 +287,7 @@ html{
     max-width: 420px;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 80px auto 80px;
+    grid-template-rows: 80px auto auto 80px;
     gap: 15px;
     background: var(--white);
     z-index: 1;
@@ -303,6 +303,13 @@ html{
     display: grid;
     grid-auto-rows: 80px;
     gap: 15px;
+  }
+
+  .empty-cart{
+    align-self: center;
+    text-align: center;
+    line-height: 1.7rem;
+    font-size: 1.7rem;
   }
 
   .order--title{

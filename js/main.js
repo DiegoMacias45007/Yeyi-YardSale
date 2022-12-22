@@ -9,6 +9,8 @@ const myOrder = document.querySelector('.order-subcontainer');
 const shopContainer = document.querySelector('.shop-container');
 const productDetail = document.querySelector('.product-detail');
 const exitDetail = document.querySelector('.exit');
+const overviewTotal = document.querySelector('.overview--total');
+const emptyCart = document.querySelector('.empty-cart');
 
 const toggleDesktopMenu = () => {
     desktopMenu.classList.toggle('inactive');
@@ -84,6 +86,8 @@ const renderProducts = (arr) => {
         const productImage = document.createElement('img')
         productImage.classList.add('item--img');
         productImage.setAttribute('src', product.image);
+        productImage.setAttribute('name', product.name);
+        productImage.setAttribute('title', product.name);
         productImage.addEventListener('click', openProductDetail);
     
         const itemPrice = document.createElement('h3');
@@ -97,6 +101,8 @@ const renderProducts = (arr) => {
     
         const itemCart = document.createElement('span');
         itemCart.classList.add('item--cart');
+        itemCart.setAttribute('name', 'Add to Cart');
+        itemCart.setAttribute('title', 'Add to Cart');
         itemCart.addEventListener('click', () => {addToCart(i, itemCart)})
     
         shopItem.append(productImage, itemPrice, itemTitle, itemCart);
@@ -116,22 +122,20 @@ renderProducts(productList);
 const addToCart = (index, cart) => {
     let x = productList[index];
     cart.classList.toggle('item--added');
+    cart.setAttribute('name', 'Remove from cart');
+    cart.setAttribute('title', 'Remove from cart');
     if(cartProducts.includes(x)){
-        removeFromCart(x);
+        return;
         
     }else{
         cartProducts.push(x);
-        renderToCart(x, index);
+        renderToCart(x);
+        sumTotal();
     }
 }
-{/* <div class="order__article">
-<img src="./assets/Imgs/Bitmap.png" alt="Retro refrigerator" class="article--img">
-<p class="article--name">Retro refrigerator</p>
-<p class="article--price">$ 120,00 <a href="#" class="cancel-item"><span></span></a></p>
-</div> */}
 
-
-const renderToCart = (element, index) =>{
+const renderToCart = (element) =>{
+    emptyCart.classList.add('inactive');
     const orderArticle = document.createElement('div');
     orderArticle.classList.add('order__article');
 
@@ -149,6 +153,7 @@ const renderToCart = (element, index) =>{
 
     const cancelItem = document.createElement('span');
     cancelItem.classList.add('cancel-item');
+    cancelItem.addEventListener('click', () => {removeFromCart(orderArticle, element)})
 
     articlePrice.appendChild(cancelItem);
 
@@ -158,7 +163,20 @@ const renderToCart = (element, index) =>{
 }
 
 
-const removeFromCart = (element) =>{
-    let index = cartProducts.indexOf(element);
+const removeFromCart = (element1, element2) =>{
+    let index = cartProducts.indexOf(element2);
     cartProducts.splice(index, 1);
+    element1.remove();
+    sumTotal();
+    if(cartProducts.length === 0){
+        emptyCart.classList.remove('inactive');
+    }
+}
+
+const sumTotal = () =>{
+    let sum = 0;
+    for(element of cartProducts){
+        sum += element.price;
+    }
+    overviewTotal.innerText = `$${sum}`;
 }
