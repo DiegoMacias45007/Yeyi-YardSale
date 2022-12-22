@@ -4,20 +4,21 @@ const burguerMenu = document.querySelector('.nav--menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.nav--cart');
 const backCart = document.querySelector('.back');
-const myOrder = document.querySelector('.order-container');
+const myCart = document.querySelector('.order-container');
+const myOrder = document.querySelector('.order-subcontainer');
 const shopContainer = document.querySelector('.shop-container');
 const productDetail = document.querySelector('.product-detail');
 const exitDetail = document.querySelector('.exit');
 
 const toggleDesktopMenu = () => {
     desktopMenu.classList.toggle('inactive');
-    myOrder.classList.add('inactive');
+    myCart.classList.add('inactive');
     productDetail.classList.add('inactive');
 }
 
 const toggleMobileMenu = () => {
     mobileMenu.classList.toggle('inactive');
-    myOrder.classList.add('inactive');
+    myCart.classList.add('inactive');
     productDetail.classList.add('inactive')
 }
 
@@ -27,7 +28,7 @@ const toggleMyOrder = () => {
     productDetail.classList.add('inactive')
 
 
-    myOrder.classList.toggle('inactive');
+    myCart.classList.toggle('inactive');
 }
 
 const closeProductDetail = () => {
@@ -38,7 +39,7 @@ const openProductDetail = () => {
     productDetail.classList.remove('inactive');
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    myOrder.classList.add();
+    myCart.classList.add();
 }
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
@@ -49,6 +50,7 @@ exitDetail.addEventListener('click', closeProductDetail);
 
 
 const productList = [];
+const cartProducts = [];
 
 productList.push({
     name: 'Round Shelf',
@@ -74,6 +76,8 @@ productList.push({
 
 const renderProducts = (arr) => {
     for(product of productList){
+        let i = productList.indexOf(product);
+
         const shopItem = document.createElement('div');
         shopItem.classList.add('shop__item');
         
@@ -93,6 +97,7 @@ const renderProducts = (arr) => {
     
         const itemCart = document.createElement('span');
         itemCart.classList.add('item--cart');
+        itemCart.addEventListener('click', () => {addToCart(i, itemCart)})
     
         shopItem.append(productImage, itemPrice, itemTitle, itemCart);
     
@@ -106,3 +111,54 @@ renderProducts(productList);
 // for(i in array) muestra el indice
 
 //Tenerlo en una function ayuda a mantener un orden y que este pueda ser llamado cuando sea necesario
+
+
+const addToCart = (index, cart) => {
+    let x = productList[index];
+    cart.classList.toggle('item--added');
+    if(cartProducts.includes(x)){
+        removeFromCart(x);
+        
+    }else{
+        cartProducts.push(x);
+        renderToCart(x, index);
+    }
+}
+{/* <div class="order__article">
+<img src="./assets/Imgs/Bitmap.png" alt="Retro refrigerator" class="article--img">
+<p class="article--name">Retro refrigerator</p>
+<p class="article--price">$ 120,00 <a href="#" class="cancel-item"><span></span></a></p>
+</div> */}
+
+
+const renderToCart = (element, index) =>{
+    const orderArticle = document.createElement('div');
+    orderArticle.classList.add('order__article');
+
+    const articleImage = document.createElement('img');
+    articleImage.setAttribute('src', element.image);
+    articleImage.classList.add('article--img');
+
+    const articleName = document.createElement('p');
+    articleName.innerText = element.name;
+    articleName.classList.add('article--name');
+
+    const articlePrice = document.createElement('p');
+    articlePrice.innerText = `$${element.price}`;
+    articlePrice.classList.add('article--price');
+
+    const cancelItem = document.createElement('span');
+    cancelItem.classList.add('cancel-item');
+
+    articlePrice.appendChild(cancelItem);
+
+    orderArticle.append(articleImage, articleName, articlePrice);
+
+    myOrder.append(orderArticle);
+}
+
+
+const removeFromCart = (element) =>{
+    let index = cartProducts.indexOf(element);
+    cartProducts.splice(index, 1);
+}
