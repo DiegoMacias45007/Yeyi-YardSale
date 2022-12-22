@@ -170,6 +170,7 @@ const addToCart = (index, cart) => {
     cart.classList.toggle('item--added');
     cart.setAttribute('name', 'Remove from cart');
     cart.setAttribute('title', 'Remove from cart');
+    shoppingCart.setAttribute('src', '../assets/Icons/icon_shopping_cart_notification.svg')
     if(cartProducts.includes(x)){
         return;
         

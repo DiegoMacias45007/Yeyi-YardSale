@@ -135,7 +135,6 @@ html{
     position: relative;
     cursor: pointer;
 }
-
 .order{
     grid-area: 4 / 2 / 5 / 4;
     place-self: center;
