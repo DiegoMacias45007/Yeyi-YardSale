@@ -142,32 +142,34 @@ productList.push ({
 
 const renderProducts = (arr) => {
     for(product of productList){
-        let i = productList.indexOf(product);
+        //Agregando destructurizacion
+        let index = productList.indexOf(product);
+        let {name, price, image} = product;
 
         const shopItem = document.createElement('div');
         shopItem.classList.add('shop__item');
         
         const productImage = document.createElement('img')
         productImage.classList.add('item--img');
-        productImage.setAttribute('src', product.image);
-        productImage.setAttribute('name', product.name);
-        productImage.setAttribute('title', product.name);
+        productImage.setAttribute('src', image);
+        productImage.setAttribute('name', name);
+        productImage.setAttribute('title', name);
         productImage.addEventListener('click', openProductDetail);
     
         const itemPrice = document.createElement('h3');
         
         itemPrice.classList.add('item--price');
-        itemPrice.innerText= `$${product.price}`
+        itemPrice.innerText= `$${price}`
     
         const itemTitle = document.createElement('p');
         itemTitle.classList.add('item--title')
-        itemTitle.innerText = product.name;
+        itemTitle.innerText = name;
     
         const itemCart = document.createElement('span');
         itemCart.classList.add('item--cart');
         itemCart.setAttribute('name', 'Add to Cart');
         itemCart.setAttribute('title', 'Add to Cart');
-        itemCart.addEventListener('click', () => {addToCart(i, itemCart)})
+        itemCart.addEventListener('click', () => {addToCart(index, itemCart)})
         product.cart = itemCart;
     
         shopItem.append(productImage, itemPrice, itemTitle, itemCart);
@@ -186,36 +188,39 @@ renderProducts(productList);
 //!Cart Functions
 
 const addToCart = (index, cart) => {
-    let x = productList[index];
+    let product = productList[index];
     cart.classList.toggle('item--added');
     cart.setAttribute('name', 'Remove from cart');
     cart.setAttribute('title', 'Remove from cart');
     shoppingCart.setAttribute('src', '../assets/Icons/icon_shopping_cart_notification.svg')
-    if(cartProducts.includes(x)){
+    if(cartProducts.includes(product)){
         return;
         
     }else{
-        cartProducts.push(x);
-        renderToCart(x);
+        cartProducts.push(product);
+        renderToCart(product);
         sumTotal();
     }
 }
 
 const renderToCart = (element) =>{
+    //Agregando destructurizacion
+    let {image, name, price} = element;
+
     emptyCart.classList.add('inactive');
     const orderArticle = document.createElement('div');
     orderArticle.classList.add('order__article');
 
     const articleImage = document.createElement('img');
-    articleImage.setAttribute('src', element.image);
+    articleImage.setAttribute('src', image);
     articleImage.classList.add('article--img');
 
     const articleName = document.createElement('p');
-    articleName.innerText = element.name;
+    articleName.innerText = name;
     articleName.classList.add('article--name');
 
     const articlePrice = document.createElement('p');
-    articlePrice.innerText = `$${element.price}`;
+    articlePrice.innerText = `$${price}`;
     articlePrice.classList.add('article--price');
 
     const cancelItem = document.createElement('span');
@@ -230,11 +235,11 @@ const renderToCart = (element) =>{
 }
 
 
-const removeFromCart = (element1, element2) =>{
-    let index = cartProducts.indexOf(element2);
+const removeFromCart = (htmlElement, arrayElement) =>{
+    let index = cartProducts.indexOf(arrayElement);
     cartProducts.splice(index, 1);
-    element1.remove();
-    element2.cart.classList.remove('item--added');
+    htmlElement.remove();
+    arrayElement.cart.classList.remove('item--added');
     sumTotal();
     if(cartProducts.length === 0){
         emptyCart.classList.remove('inactive');
