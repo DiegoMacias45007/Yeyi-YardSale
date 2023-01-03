@@ -353,6 +353,8 @@ html{
   
   .article--img {
     width: 100%;
+    aspect-ratio: 3/3;
+    object-fit: contain;
     max-width: 120px;
     border-radius: 20px;
   }
@@ -417,9 +419,12 @@ html{
 
 .product--img{
     width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-bottom: 14px;
+    padding-block-start: 10px;
 }
 
 .exit{
@@ -428,6 +433,7 @@ html{
     width: 40px;
     height: 40px;
     background-color: var(--white);
+    box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.75);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -545,8 +551,9 @@ html{
 .item--img{
     cursor: pointer;
     width: 95%;
-    height: 50%;
-    background: center/cover;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: lighten;
     border-radius: 10%;
     filter: drop-shadow(0px 0px 15px rgba(199, 199, 199, 0.5));
 }
@@ -563,12 +570,19 @@ html{
 
 .item--title{
     align-self: flex-start;
+    width: 70%;
+    height: 8%;
+    overflow-y: hidden;
     margin-left: 5px;
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.7rem;
     color:rgba(121, 121, 121, 1);
 }
+.item--title::-webkit-scrollbar{
+    display: none;
+}
+
 
 .item--cart{
     width: 40px;
@@ -724,6 +738,9 @@ html{
     
       .article--price {
         font-size: 1.6rem;
+      }
+      .product-detail{
+        box-shadow: -1px 8px 20px 0px rgb(0 0 0 / 20%);
       }
 }
 

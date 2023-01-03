@@ -1,0 +1,30 @@
+{
+  "name": "yeyi-yardsale",
+  "version": "1.0.0",
+  "description": "Mi primer intento de un ecommerce con JS y APIS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoMacias45007/Yeyi-YardSale.git"
+  },
+  "keywords": [
+    "ecommerce",
+    "js",
+    "html",
+    "css",
+    "api"
+  ],
+  "author": "Diego Macias <djoromac@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DiegoMacias45007/Yeyi-YardSale/issues"
+  },
+  "homepage": "https://github.com/DiegoMacias45007/Yeyi-YardSale#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  },
+  "type": "module"
+}
