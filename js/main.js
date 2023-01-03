@@ -194,6 +194,9 @@ const sumTotal = () =>{
 //!Render product description
 
 const renderDescription = element =>{
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    myCart.classList.add('inactive');
     let { title, price, description, image} = element;
     const remove = document.querySelector('.product-detail :nth-child(1)');
     if(remove !== null){
