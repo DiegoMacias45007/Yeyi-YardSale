@@ -252,13 +252,13 @@ const renderDescription = element =>{
     button.classList.add('button');
     button.setAttribute('type', 'submit');
     button.setAttribute('title', 'Add to cart');
-    button.innerText = 'Add to cart';
-
+    
     const addToCart = document.createElement('img');
     addToCart.setAttribute('src', '../assets/Icons/white_shopping_cart.svg')
     addToCart.setAttribute('alt', 'Add to cart');
-
+    
     button.append(addToCart);
+    button.innerText += 'Add to cart';
 
 
     mainSection.append(figure, sliderContainer, productDescriptionContainer, button);
