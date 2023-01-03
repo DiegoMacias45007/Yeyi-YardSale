@@ -258,7 +258,7 @@ const renderDescription = element =>{
     addToCart.setAttribute('alt', 'Add to cart');
     
     button.append(addToCart);
-    button.innerText += 'Add to cart';
+    button.innerHTML += 'Add to cart';
 
 
     mainSection.append(figure, sliderContainer, productDescriptionContainer, button);
