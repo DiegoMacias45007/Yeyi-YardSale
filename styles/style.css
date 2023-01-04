@@ -403,16 +403,15 @@ html{
   }
 /* Product Detail */
   .product-detail{
-    top: 61px;
-    right: 0;
-    position: absolute;
+    top: 0;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     min-width: 320px;
-    max-width: 320px;
-    height: auto;
+    max-width: 425px;
+    height: 100vh;
     z-index: 1;
     background-color: var(--white);
 }
@@ -760,6 +759,9 @@ html{
 
     .order span{
         left: calc(50% + 130px);
+    }
+    .product-detail{
+        right: 0;
     }
 }
 
